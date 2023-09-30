@@ -15,8 +15,14 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, re_path
+from .views import (home, clientes, cliente_detalhe, cliente_por_nome)
 
+# O url resolution lê essa lista em ordem crescente de índice
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    re_path('^$', home, name='home'), # ^$ força que a url comece e termine vazia
+    re_path('^clientes/$', clientes, name='clientes'),
+    re_path('^cliente/(?P<id>\d{1,3})$', cliente_detalhe, name='cliente_detalhe'), # P no regex significa Parameter
+    re_path('^cliente/(?P<nome>\w+)', cliente_por_nome, name='cliente_por_nome'),
+    path('admin/', admin.site.urls), # antigamente o django utilizava url() ao invés de path() como padrão e sempre aceitava regex
 ]
