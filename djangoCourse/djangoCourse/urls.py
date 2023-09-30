@@ -16,7 +16,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, re_path
-from .views import (home, clientes, cliente_detalhe, cliente_por_nome)
+from .views import home
+from clientes.views import (clientes, 
+                            cliente_detalhe, 
+                            cliente_por_nome)
 
 # O url resolution lê essa lista em ordem crescente de índice
 urlpatterns = [
