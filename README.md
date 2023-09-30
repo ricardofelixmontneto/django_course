@@ -43,6 +43,8 @@ web server (nginx/apache) -> client
 Criar um arquivo com nome views.py no mesmo nível que urls.py e wsig.py
 
 Nesse arquivos serão escritas as funções de entrada a partir de uma ulr dentro de urls.py
+https://docs.djangoproject.com/en/4.2/topics/class-based-views/
+
 
 # URL Regex
 O URL resolution do Django também trabalha com regex e é interessante para evitar comportamentos não desejados ao chamar urls
@@ -50,6 +52,39 @@ O URL resolution do Django também trabalha com regex e é interessante para evi
 # Arquitetura Django
 O Jungle utiliza a arquitetura MVT(model view template) como base, se compararmos com MVC(model view controller) a view tem o papel do controller
 
+Para leitura: https://dev.to/kputra/rails-skinny-controller-skinny-model-5f2k
+Resumo: as views tem que ser pequenas com pouca lógica e os models fazem o trabalho pesado.
+"Skinhy controller(view) and fat models"
 
+## Django Apps
+Criar o módulo view na raiz do projeto é interessante apenas para armazenar views genéricas que no caso desse projeto é a home interessantes, para armazenar outras views o django utiliza apps para separar a aplicação por domínios por exemplo clientes e produto
+- Os projetos Django são baseado em aplicações
 
+Criando a app clientes $ python manage.py startapp clientes 
 
+Sempre que criamos uma nova aplicação precisamos registrar no modulo settings.py em INSTALLED_APPS
+
+## Models
+
+O model mapeia as entidades do banco de dados e podemos adicionar à esses models acões.
+
+Referências: https://docs.djangoproject.com/en/4.2/ref/models/fields/
+
+Depois de criar um model rodar $ python manage.py makemigrations
+Esse comando vai criar um arquivo de migrations(plano de criação de tabelas) dentro do app clientes/migrations/<numero_migration>_initial.py
+
+Para criar essa model como tabela no banco de dados agora que temos um arquivo migrations criado, devemos executar o comando
+$ python manage.py migrate
+
+Para acessar o banco devemos utilizar a linha de comando do shell disponibilizada pelo Djando via manage.py
+$ python manage.py shell
+Então podemos acessar e manipular dados no banco através da interação com a classe model Cliente
+
+Podemos inserir novos registros da mesma forma
+$ Cliente.objects.create(nome='Maria', endereco='Rua Maria Jose - n 10')
+
+Para realizar consulta no usuário criado
+$ c = Cliente.objects.all()[0]
+$ c.id # primary key incremental criada automaticamente pelo Django
+$ c.nome
+$ c.endereco
