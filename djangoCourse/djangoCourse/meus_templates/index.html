@@ -1,0 +1,25 @@
+<h1>Olá mundo</h1>
+
+{{minha_variavel}} 
+<br>
+{% if sexo == 'm' or sexo == 'M' %} 
+    Olá senhor {{ nome }} <br>
+{% elif sexo == 'f' %} 
+    Olá senhora {{ nome }} <br>
+{% else %}
+    Olá {{ nome }} <br>
+{% endif %}
+<br>
+
+<ul>
+{% for pessoa in lista %}
+    {% if pessoa.sexo == 'm' %}
+    <li> Olá senhor {{ pessoa.nome }} </li>
+    {% elif pessoa.sexo == 'f' %}
+    <li> Olá senhora {{ pessoa.nome }} </li>
+    {% else %}
+    <li> Olá {{ pessoa.nome }} </li>
+    {% endif %}
+{% endfor %}
+</ul>
+
