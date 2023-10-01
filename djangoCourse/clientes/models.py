@@ -23,7 +23,7 @@ class Cliente(models.Model):
     idade = models.IntegerField(default=0)
     email = models.EmailField(default='mail@mail.com')
     cpf = models.OneToOneField(CPF, null=True, on_delete=models.CASCADE)
-    departamentos = models.ManyToManyField(Departamento, blank=True, null=True, default=None)
+    departamentos = models.ManyToManyField(Departamento, blank=True, default=None)
     def __str__(self):
         return self.nome
 
