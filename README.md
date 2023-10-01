@@ -88,3 +88,16 @@ $ c = Cliente.objects.all()[0]
 $ c.id # primary key incremental criada automaticamente pelo Django
 $ c.nome
 $ c.endereco
+
+Dúvida: os arquivos do diretório migrations devem ser versionados ou sempre devemos executar o comando makemigrations?
+Parece que prcisamos versionar esses arquivos mas ainda não entendi o motivo, pesquiar sobre.
+Resposta: https://pt.stackoverflow.com/questions/452178/%C3%89-correto-versionar-os-arquivos-das-migrations-e-o-arquivo-de-configura%C3%A7%C3%A3o#:~:text=Pensando%20que%20a%20filosofia%20da,altera%C3%A7%C3%B5es%20no%20banco%20de%20dados.
+
+Obs: sempre que houver mudança ou criação de novas models, executar os comandos:
+$ python manage.py makemigrations
+$ python manage.py migrate
+
+
+## Personalizando Django Admin
+
+Fonte: https://docs.djangoproject.com/en/4.2/ref/contrib/admin/
