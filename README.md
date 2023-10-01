@@ -110,4 +110,21 @@ Ex: {{minha_variavel}}
 
 O sistema de templates do Django é o Jinja, o mesmo que pode ser utilizado no Flask
 
-### Herança de Templates
+Exemplos de Herança de templates e ingeção de templates estão no diretório djangoCourse/meus_templates
+
+## Arquivos Estáticos
+
+Fonte: https://docs.djangoproject.com/en/4.2/howto/static-files/
+
+Crie um diretório em djangoCourse/static_files
+
+Adicione a linha abaixo ao arquivo djangoCourse/settings.py
+
+STATIC_ROOT = 'static_files'
+
+Obs.: a notação ```{%  %}``` se chama template tags
+
+Os arquivos estáticos locais como por exemplo o djangoCourse/meus_templates/style.css são servidos apenas quando o Django está em modo settings.y -> Debug=True
+Em produção precisamos criar um servidor de arquivos estáticos para que o Django possa consumir.
+Dessa forma estilos bootstrap continuam funcionando pois não são de origem local.
+Django não serve arquivos estáticos.

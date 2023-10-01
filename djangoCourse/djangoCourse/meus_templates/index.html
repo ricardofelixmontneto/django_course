@@ -1,11 +1,12 @@
 {% extends 'base.html' %}
 
+{% block tilte %} Seja bem vindo - Pagina principal {% endblock tilte %}
 
 {% block main %}
 
 
 
-<h1>Olá mundo</h1>
+<h1 class="meu_estilo">Olá mundo</h1>
 
 {{minha_variavel}} 
 <br>
@@ -29,7 +30,7 @@
     {% endif %}
 {% endfor %}
 </ul>
-
+    <button class="btn btn-info" onclick="olaMundo()">Clique Aqui</button>
     {% include "footer.html" with var_nome=nome %}
 
 {% endblock %}
