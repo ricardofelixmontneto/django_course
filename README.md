@@ -101,3 +101,11 @@ $ python manage.py migrate
 ## Personalizando Django Admin
 
 Fonte: https://docs.djangoproject.com/en/4.2/ref/contrib/admin/
+
+
+## Templates
+
+Não é boa prática colocar cálculos complexos em template html, o ideal é calcular no backend python view ou model e retornar esses valores em variáveis para o render renderizar o template com variáveis injetadas com a notação {{ }}
+Ex: {{minha_variavel}} 
+
+O sistema de templates do Django é o Jinja, o mesmo que pode ser utilizado no Flask
