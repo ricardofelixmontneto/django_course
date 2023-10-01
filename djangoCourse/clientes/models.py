@@ -24,6 +24,8 @@ class Cliente(models.Model):
     email = models.EmailField(default='mail@mail.com')
     cpf = models.OneToOneField(CPF, null=True, on_delete=models.CASCADE)
     departamentos = models.ManyToManyField(Departamento, blank=True, default=None)
+    foto = models.ImageField(upload_to='cliente_fotos') # salva em um diretório/bucket
+
     def __str__(self):
         return self.nome
 

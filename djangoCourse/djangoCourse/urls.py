@@ -21,6 +21,9 @@ from clientes.views import (clientes,
                             cliente_detalhe, 
                             cliente_por_nome)
 
+from django.conf import settings
+from django.conf.urls.static import static
+
 # O url resolution lê essa lista em ordem crescente de índice
 urlpatterns = [
     re_path('^$', home, name='home'), # ^$ força que a url comece e termine vazia
@@ -28,4 +31,4 @@ urlpatterns = [
     re_path('^cliente/(?P<id>\d{1,3})$', cliente_detalhe, name='cliente_detalhe'), # P no regex significa Parameter
     re_path('^cliente/(?P<nome>\w+)', cliente_por_nome, name='cliente_por_nome'),
     path('admin/', admin.site.urls), # antigamente o django utilizava url() ao invés de path() como padrão e sempre aceitava regex
-]
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

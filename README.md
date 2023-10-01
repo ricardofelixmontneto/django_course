@@ -128,3 +128,9 @@ Os arquivos estáticos locais como por exemplo o djangoCourse/meus_templates/sty
 Em produção precisamos criar um servidor de arquivos estáticos para que o Django possa consumir.
 Dessa forma estilos bootstrap continuam funcionando pois não são de origem local.
 Django não serve arquivos estáticos.
+
+
+## Arquivos de Mídia
+
+Django não é um servidor de arquivos estático e de mídia, por isso é necessário utilizar 
+recursos externos para esse fim 
