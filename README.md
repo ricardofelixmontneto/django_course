@@ -109,3 +109,5 @@ Não é boa prática colocar cálculos complexos em template html, o ideal é ca
 Ex: {{minha_variavel}} 
 
 O sistema de templates do Django é o Jinja, o mesmo que pode ser utilizado no Flask
+
+### Herança de Templates
