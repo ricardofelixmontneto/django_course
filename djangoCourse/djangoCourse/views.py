@@ -14,7 +14,7 @@ def home(request):
     ]
 
     sexo = 'm'
-    nome = 'Maria'
+    nome = 'Maria Jose'
     minha_variavel = 'Hello World atraves de variavel'
     return render(request, 'index.html', {'minha_variavel': minha_variavel,
                                           'sexo': sexo,
