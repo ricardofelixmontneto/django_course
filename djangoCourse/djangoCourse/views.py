@@ -3,9 +3,9 @@ import json
 from django.http import HttpResponse
 from django.shortcuts import render
 
-# FUNCTION-based views
-def home(request):
 
+# FUNCTION-based views
+def home(request):    
     lista = [
         {'nome': 'Pedro', 'sexo': 'm'},
         {'nome': 'Maria', 'sexo': 'f'},

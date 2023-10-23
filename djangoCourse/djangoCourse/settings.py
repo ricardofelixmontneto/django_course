@@ -37,7 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'clientes'
+    'clientes',
+    'rest_framework', # para uar as libs jwt
+    'rest_framework_simplejwt', # para uar as libs jwt
 ]
 
 MIDDLEWARE = [
@@ -131,4 +133,13 @@ STATICFILES_DIRS = [
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    )
+}
 
+# Utilizar a secret key aqui(usar um secret manager)
+SIMPLE_JWT = {
+    "SIGNING_KEY": "secret_key",
+}

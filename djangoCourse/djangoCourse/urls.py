@@ -23,9 +23,15 @@ from clientes.views import (clientes,
 
 from django.conf import settings
 from django.conf.urls.static import static
+from rest_framework_simplejwt.views import (
+    TokenObtainPairView,
+    TokenRefreshView,
+)
 
 # O url resolution lê essa lista em ordem crescente de índice
 urlpatterns = [
+    path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
+    path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
     re_path('^$', home, name='home'), # ^$ força que a url comece e termine vazia
     re_path('^clientes/$', clientes, name='clientes'),
     re_path('^cliente/(?P<id>\d{1,3})$', cliente_detalhe, name='cliente_detalhe'), # P no regex significa Parameter
