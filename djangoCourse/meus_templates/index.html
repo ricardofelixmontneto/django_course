@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block tilte %} Seja bem vindo - Pagina principal {% endblock tilte %}
+
+{% block main %}
+
+
+
+<h1 class="meu_estilo">Olá mundo</h1>
+
+{{minha_variavel}} 
+<br>
+{% if sexo == 'm' or sexo == 'M' %} 
+    Olá senhor {{ nome }} <br>
+{% elif sexo == 'f' %} 
+    Olá senhora {{ nome }} <br>
+{% else %}
+    Olá {{ nome }} <br>
+{% endif %}
+<br>
+
+<ul>
+{% for pessoa in lista %}
+    {% if pessoa.sexo == 'm' %}
+    <li> Olá senhor {{ pessoa.nome }} </li>
+    {% elif pessoa.sexo == 'f' %}
+    <li> Olá senhora {{ pessoa.nome }} </li>
+    {% else %}
+    <li> Olá {{ pessoa.nome }} </li>
+    {% endif %}
+{% endfor %}
+</ul>
+    <button class="btn btn-info" onclick="olaMundo()">Clique Aqui</button>
+    {% include "footer.html" with var_nome=nome %}
+
+{% endblock %}
